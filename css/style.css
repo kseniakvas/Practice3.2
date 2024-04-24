@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(255, 255, 255);
+    counter-reset: section;
+}
+
+header > h1 {
+    font-family: "Noto Sans Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow: none;
+    text-align: center;
+}
+
+
+h2::before {
+    counter-increment: section;
+    content: counter(section) " ";
+    display: inline-block; /* Встановлення елемента блоком для можливості задання ширини та висоти */
+    width: 30px; /* Задання ширини кола */
+    height: 30px; /* Задання висоти кола */
+    border-radius: 50%; /* Задання радіуса для створення кола */
+    text-align: center; /* Вирівнювання тексту по центру кола */
+    line-height: 30px; /* Встановлення висоти рядка для вертикального центрування тексту */
+    color: black; /* Колір тексту */
+    margin-right: 5px; /* Додатковий відступ між колом та текстом */
+    border: 2px solid rgb(255, 0, 0); /* Додавання чорного бордера */
+  }
+
+ul {
+    margin-left: 7%;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li:before {
+    content: "-";
+    margin-right: 5px; 
+    font-size: 1.5em;
+}
+
+ul li:nth-child(even) {
+    color: red;
+}
+
+.flex-container {
+    display: flex;    
+    flex-direction: row;
+}
+
+.flex-container > div {
+    margin: -1px;
+    border: 3px solid rgb(255, 0, 0);
+    width: 50%;
+    padding: 1%;
+}
+
+@media only screen and (max-width: 768px) {
+    .flex-container { 
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flex-container > div {
+        width: 100%;
+        height: 50%;
+    }
+}
